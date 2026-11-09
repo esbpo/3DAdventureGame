@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://ckksitl6fmlmt"]
+
+[ext_resource type="PackedScene" uid="uid://cau2bh8am3eir" path="res://aux_scene.tscn" id="1_a202f"]
+
+[node name="Node3D" type="Node3D" unique_id=1571068176]
+
+[node name="AuxScene" parent="." unique_id=590335572 instance=ExtResource("1_a202f")]
