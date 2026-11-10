@@ -9,7 +9,7 @@ const SENSITIViTY = 0.003
 const JUMP_VELOCITY = 4.5
 
 var jump_speed = WALK_SPEED
-var direction
+var direction: Vector3
 @export var speed: float = 3
 var gravity = 9.8
 
@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 		jump_speed = speed
 	
 	var input_dir = Input.get_vector("Left", "Right", "Forward", "Backward")
-	direction = (player_camera_pivot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	direction = -(transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
 		if is_on_floor():
 			velocity.x = direction.x * speed
@@ -46,6 +46,6 @@ func _physics_process(delta: float) -> void:
 
 func _unhandled_input(event):
 	if event is InputEventMouseMotion and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
-		player_camera_pivot.rotate_y(-event.relative.x * SENSITIViTY)
-		player_camera.rotate_x(-event.relative.y * SENSITIViTY)
-		player_camera.rotation.x = clamp(player_camera.rotation.x, deg_to_rad(-90), deg_to_rad(90))
+		rotate_y(-event.relative.x * SENSITIViTY)
+		player_camera_pivot.rotate_x(event.relative.y * SENSITIViTY)
+		player_camera_pivot.rotation.x = clamp(player_camera_pivot.rotation.x, deg_to_rad(-45), deg_to_rad(45))
