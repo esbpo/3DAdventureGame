@@ -2,20 +2,15 @@
 
 [ext_resource type="Script" uid="uid://dn2ghe84e3ok3" path="res://player.gd" id="1_4flbx"]
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_epa72"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_n5eui"]
 
 [node name="Player" type="CharacterBody3D" unique_id=1030560176]
 script = ExtResource("1_4flbx")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=598562888]
-mesh = SubResource("CapsuleMesh_epa72")
-
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=22417490]
 shape = SubResource("CapsuleShape3D_n5eui")
 
-[node name="Node3D" type="Node3D" parent="." unique_id=1322296440]
+[node name="PlayerCameraPivot" type="Node3D" parent="." unique_id=1322296440]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.738717, 0)
 
-[node name="Camera3D" type="Camera3D" parent="Node3D" unique_id=194303810]
+[node name="PlayerCamera" type="Camera3D" parent="PlayerCameraPivot" unique_id=194303810]
